@@ -1,0 +1,2 @@
+# Sobre el Modelo:
+Actualmente, el modelo presenta un RMSE de USD 2.29, lo cual representa un error elevado considerando que la propina promedio es de USD 2.96. Esto sugiere que el modelo aún no captura variables clave de comportamiento (como temporalidad o tráfico) y se comporta de forma cercana a un predictor de la media.
