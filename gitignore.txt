@@ -8,3 +8,12 @@ $py.class
 venv
 env
 anaconda3
+
+# Datos y Modelos
+*.csv
+*.parquet
+#*.pkl
+
+# VS Code y OS
+.vscode/
+.DS_Store

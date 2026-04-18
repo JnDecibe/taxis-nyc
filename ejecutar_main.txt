@@ -1,0 +1,10 @@
+#Ejecutar el main -> Voy a Anaconda prompt:
+conda activate labo_datos
+
+#Navego al proyecto:
+cd C:\Users\Juan\Desktop\Juan\Proyectos\Datos\taxis-nyc
+
+#Lanzo el servidor:
+uvicorn main:app --reload
+
+#Abrir Ip tipo "http://127.0.0.1:8000" y agregar /docs

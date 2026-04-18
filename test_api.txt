@@ -1,0 +1,26 @@
+Son las columnas originales salvo por la columna que quiero predecir "tip_amount"
+y la columna "total_amount" que contiene el valor de la columna "tip_amount"dentro.
+
+Test en formato JSON.
+
+{
+  "VendorID": 1,
+  "tpep_pickup_datetime": "2026-04-18 14:30:00",
+  "passenger_count": 1,
+  "trip_distance": 2.5,
+  "RatecodeID": 1,
+  "store_and_fwd_flag": "N",
+  "PULocationID": 161,
+  "DOLocationID": 237,
+  "payment_type": 1,
+  "fare_amount": 10.0,
+  "extra": 0.5,
+  "mta_tax": 0.5,
+  "tolls_amount": 0.0,
+  "improvement_surcharge": 0.3,
+  "congestion_surcharge": 2.5,
+  "Airport_fee": 0.0,
+  "PU_Borough": "Manhattan",
+  "DO_Borough": "Manhattan",
+  "service_zone": "Yellow Zone"
+}
