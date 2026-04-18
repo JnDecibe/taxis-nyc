@@ -51,3 +51,25 @@ class numeroAString(BaseEstimator, TransformerMixin):
             if col in X_copy.columns:
                 X_copy[col] = X_copy[col].astype(str)
         return X_copy
+    
+#Quiero obtener la hora fecha a ver si me da más información.
+import pandas as pd
+class AtributosTemporales(BaseEstimator, TransformerMixin):
+    def __init__(self, columna_fecha):
+        self.columna_fecha = columna_fecha
+    
+    def fit(self, X, y=None):
+        return self
+    
+    def transform(self, X):
+        X_copy = X.copy()
+        #Convirto a datetime por si no lo está
+        X_copy[self.columna_fecha] = pd.to_datetime(X_copy[self.columna_fecha])
+        
+        #Extraigo la hora y el día (Lunes=0, Domingo=6)
+        X_copy["hora"] = X_copy[self.columna_fecha].dt.hour
+        X_copy["dia_semana"] = X_copy[self.columna_fecha].dt.dayofweek
+        
+        #Borro la columna original de fecha porque el modelo no sabe leer "strings" de fecha
+        X_copy.drop(self.columna_fecha, axis=1, inplace=True)
+        return X_copy

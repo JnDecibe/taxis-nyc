@@ -10,7 +10,7 @@ import os
 #Agrego la carpeta raíz al path de búsqueda de Python
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from src.transformers import numeroAString
+from src.transformers import numeroAString, AtributosTemporales
 
 def build_full_pipeline(cat_cols, num_cols):
     #No incluyo 'cleaning' acá porque borra filas.
@@ -30,11 +30,13 @@ def build_full_pipeline(cat_cols, num_cols):
     #Las columnas deben estar definidas antes de crear el ColumnTransformer.
 
     full_transformer = ColumnTransformer([
+        
         ('num_tr', num_pipeline, num_cols),
         ('cat_tr', cat_pipeline, cat_cols),
     ])
 
     return Pipeline([
+        ('atributos_tiempo', AtributosTemporales(columna_fecha='tpep_pickup_datetime')),
         ('convertidor_str', numeroAString()),
         ('transformation', full_transformer),
     ])
