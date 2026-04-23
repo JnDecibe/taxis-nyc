@@ -30,6 +30,9 @@ class mapeoABarrios(BaseEstimator, TransformerMixin):
         }, inplace=True)
         
         return X_copy
+    
+    def transform(self, X):
+        return self.mapeo(X)
         
 class numeroAString(BaseEstimator, TransformerMixin):
     """
@@ -73,3 +76,16 @@ class AtributosTemporales(BaseEstimator, TransformerMixin):
         #Borro la columna original de fecha porque el modelo no sabe leer "strings" de fecha
         X_copy.drop(self.columna_fecha, axis=1, inplace=True)
         return X_copy
+    
+class EliminarColumnas(BaseEstimator, TransformerMixin):
+    def __init__(self, columnas_a_eliminar):
+        self.columnas_a_eliminar = columnas_a_eliminar
+    
+    def fit(self, X, y=None):
+        return self
+    
+    def transform(self, X):
+        X_copy = X.copy()
+        # Elimino solo si las columnas existen en el DataFrame actual
+        existentes = [col for col in self.columnas_a_eliminar if col in X_copy.columns]
+        return X_copy.drop(columns=existentes)
