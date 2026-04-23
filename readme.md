@@ -1,3 +1,10 @@
+# Requisitos Previos
+1. Python 3.9+
+
+2. Anaconda o entorno virtual (venv)
+
+3. Dependencias: fastapi, uvicorn, joblib, pandas, scikit-learn
+
 # Proyecto hasta ahora
 
 1. Está terminada la parte del backend. 

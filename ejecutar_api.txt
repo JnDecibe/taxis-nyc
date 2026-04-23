@@ -5,6 +5,6 @@ conda activate labo_datos
 cd C:\Users\Juan\Desktop\Juan\Proyectos\Datos\taxis-nyc
 
 #Lanzo el servidor:
-uvicorn main:app --reload
+uvicorn test_api:app --reload
 
 #Abrir Ip tipo "http://127.0.0.1:8000" y agregar /docs
